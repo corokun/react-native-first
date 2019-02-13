@@ -1,16 +1,8 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- * @flow
- * @lint-ignore-every XPLATJSCOPYRIGHT1
- */
-
 import React, { Component } from 'react';
 import { StyleSheet, Text, View, TextInput, Button } from 'react-native';
 
-type Props = {};
+import ListItem from './src/components/ListItem';
+
 export default class App extends Component<Props> {
   state = {
     placeName: '',
@@ -37,7 +29,7 @@ export default class App extends Component<Props> {
 
   render() {
     const placesOutput = this.state.places.map((place, i) => (
-      <Text key={i}>{place}</Text>
+      <ListItem key={i} placeName={place} />
     ));
     return (
       <View style={styles.container}>
@@ -54,7 +46,7 @@ export default class App extends Component<Props> {
             onPress={this.placeSubmitHandler}
           />
         </View>
-        <View>
+        <View styles={styles.listContainer}>
           {placesOutput}
         </View>
       </View>
@@ -71,7 +63,6 @@ const styles = StyleSheet.create({
     justifyContent: 'flex-start',
   },
   inputContainer: {
-    // flex: 1,
     width: "100%",
     flexDirection: 'row',
     justifyContent: 'space-between',
@@ -82,5 +73,8 @@ const styles = StyleSheet.create({
   },
   placeButton: {
     width: "30%"
+  }, 
+  listContainer: {
+    width: "100%"
   }
 });
