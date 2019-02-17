@@ -11,9 +11,7 @@ const placeList = (props) => {
       onItemPressed={() => props.onItemDeleted(i)} 
     />
   ));
-  return (
-    <ScrollView style={styles.listContainer}>{placesOutput}</ScrollView>
-  );
+  return <ScrollView style={styles.listContainer}>{placesOutput}</ScrollView>
 };
 
 const styles = StyleSheet.create({
