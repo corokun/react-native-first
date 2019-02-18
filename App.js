@@ -12,8 +12,11 @@ export default class App extends Component {
   placeAddedHandler = (placeName) => {
     this.setState((prevState) => {
       return {
-        places: prevState.places.concat(placeName)
-      }
+        places: prevState.places.concat({
+          key: Math.random(), 
+          value: placeName
+        })
+      };
     });
   };
 
