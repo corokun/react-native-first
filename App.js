@@ -3,6 +3,7 @@ import { StyleSheet, View } from 'react-native';
 
 import PlaceInput from './src/components/PlaceInput';
 import PlaceList from './src/components/PlaceList';
+import placeImage from './src/assets/bora-bora.jpg';
 
 export default class App extends Component {
   state = {
@@ -14,17 +15,18 @@ export default class App extends Component {
       return {
         places: prevState.places.concat({
           key: Math.random(), 
-          value: placeName
+          name: placeName,
+          image: placeImage
         })
       };
     });
   };
 
-  placeDeletedHandler = index => {
+  placeDeletedHandler = key => {
     this.setState(prevState => {
       return {
-        places: prevState.places.filter((place, i) => {
-          return i !== index;
+        places: prevState.places.filter((place) => {
+          return place.key !== key;
         })
       }
     });
