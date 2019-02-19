@@ -3,7 +3,7 @@ import { StyleSheet, View, TextInput, Button } from 'react-native';
 
 export default class PlaceList extends Component {
   state = {
-    placeName: ''
+    placeName: ""
   };
 
   placeNameChangedHandler = (val) => {
@@ -16,20 +16,19 @@ export default class PlaceList extends Component {
     if (this.state.placeName.trim() === "") {
       return;
     }
-
     this.props.placeAdded(this.state.placeName);
   };
 
   render() {
     return (
       <View style={styles.inputContainer}>
-        <TextInput 
+        <TextInput
           placeholder="An awesome place"
-          value={this.state.placeName} 
+          value={this.state.placeName}
           onChangeText={this.placeNameChangedHandler}
           style={styles.placeInput}
         />
-        <Button 
+        <Button
           title="Add"
           style={styles.placeButton}
           onPress={this.placeSubmitHandler}
