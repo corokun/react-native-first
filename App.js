@@ -1,24 +1,26 @@
-// import { Navigation } from 'react-native-navigation';
+import { Navigation } from 'react-native-navigation';
+import { registerScreens } from './src/screens/screens';
 
-// import AuthScreen from './src/screens/Auth';
+registerScreens();
 
-// // Register Screens
-// Navigation.registerComponent("AuthScreen", () => AuthScreen);
-
-// // Start a App
-// Navigation.setRoot({
-//   root: {
-//     stack: {
-//       component: {
-//         name: 'AuthScreen',
-//         options: {
-//           topBar: {
-//             title: {
-//               text: 'Login'
-//             }
-//           }
-//         }
-//       }
-//     }
-//   }
-// });
+Navigation.events().registerAppLaunchedListener(() => {
+  Navigation.setRoot({
+    root: {
+      stack: {
+        children: [{
+          component: {
+            name: 'AuthScreen',
+            options: {
+              topBar: {
+                title: {
+                  text: 'Login',
+                  alignment: 'center'
+                }
+              }
+            }
+          }
+        }]
+      }
+    }
+  });
+});
