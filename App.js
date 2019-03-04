@@ -6,6 +6,7 @@ import { Provider } from 'react-redux';
 import AuthScreen from './src/screens/Auth';
 import FindPlaceScreen from './src/screens/FindPlace';
 import SharePlaceScreen from './src/screens/SharePlace';
+import PlaceDetailScreen from './src/screens/PlaceDetail';
 import configureStore from './src/store/configureStore';
 
 const store = configureStore();
@@ -25,6 +26,11 @@ Navigation.registerComponent("SharePlaceScreen", () => (props) => (
     <SharePlaceScreen {...props} />
   </Provider>
 ), () => SharePlaceScreen);
+Navigation.registerComponent("PlaceDetailScreen", () => (props) => (
+  <Provider store={store}>
+    <PlaceDetailScreen {...props} />
+  </Provider>
+), () => PlaceDetailScreen);
 
 Navigation.events().registerAppLaunchedListener(() => {
   Navigation.setRoot({
