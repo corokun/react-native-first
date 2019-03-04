@@ -16,7 +16,7 @@ export default class PlaceList extends Component {
     if (this.state.placeName.trim() === "") {
       return;
     }
-    this.props.placeAdded(this.state.placeName);
+    this.props.onPlaceAdded(this.state.placeName);
   };
 
   render() {
