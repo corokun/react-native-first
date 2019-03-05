@@ -6,6 +6,23 @@ import { connect } from 'react-redux';
 import PlaceList from '../components/PlaceList';
 
 class FindPlaceScreen extends Component {
+  constructor(props) {
+    super(props);
+    Navigation.events().bindComponent(this);
+  }
+
+  navigationButtonPressed({ buttonId }) {
+    if (buttonId === "sideDrawerToggle") {
+      Navigation.mergeOptions(this.props.componentId, {
+        sideMenu: {
+          left: {
+            visible: true
+          }
+        }
+      })
+    }
+  }
+
   itemSelectedHandler = key => {
     const selectedPlace = this.props.places.find(place => {
       return place.key === key;
