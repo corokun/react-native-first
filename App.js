@@ -7,6 +7,7 @@ import AuthScreen from './src/screens/Auth';
 import FindPlaceScreen from './src/screens/FindPlace';
 import SharePlaceScreen from './src/screens/SharePlace';
 import PlaceDetailScreen from './src/screens/PlaceDetail';
+import SideDrawer from './src/screens/SideDrawer';
 import configureStore from './src/store/configureStore';
 
 const store = configureStore();
@@ -31,6 +32,11 @@ Navigation.registerComponent("PlaceDetailScreen", () => (props) => (
     <PlaceDetailScreen {...props} />
   </Provider>
 ), () => PlaceDetailScreen);
+Navigation.registerComponent("SideDrawer", () => (props) => (
+  <Provider store={store}>
+    <SideDrawer {...props} />
+  </Provider>
+), () => SideDrawer);
 
 Navigation.events().registerAppLaunchedListener(() => {
   Navigation.setRoot({
