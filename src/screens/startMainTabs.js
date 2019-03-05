@@ -14,6 +14,7 @@ const startMainTabs = () => {
           sideMenu: {
             left: {
               component: {
+                id: "sideDrawerId",
                 name: "SideDrawer"
               }
             },
@@ -25,6 +26,7 @@ const startMainTabs = () => {
                       children: [
                         {
                           component: {
+                            id: "findPlaceId",
                             name: 'FindPlaceScreen',
                             options: {
                               topBar: {
@@ -33,7 +35,7 @@ const startMainTabs = () => {
                                 },
                                 leftButtons: [
                                   {
-                                    id: 'leftButtonFind',
+                                    id: 'sideDrawerToggle',
                                     icon: sources[2],
                                     title: "Menu"
                                   }
@@ -54,6 +56,7 @@ const startMainTabs = () => {
                       children: [
                         {
                           component: {
+                            id: "sharePlaceId",
                             name: 'SharePlaceScreen',
                             options: {
                               topBar: {
@@ -62,7 +65,7 @@ const startMainTabs = () => {
                                 },
                                 leftButtons: [
                                   {
-                                    id: 'leftButtonShare',
+                                    id: 'sideDrawerToggle',
                                     icon: sources[2],
                                     title: "Menu"
                                   }

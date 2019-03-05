@@ -8,19 +8,21 @@ import PlaceInput from '../components/PlaceInput';
 
 
 class SharePlaceScreen extends Component {
-  componentDidMount() {
-    this.navigationEventListener = Navigation.events().bindComponent(this);
-  }
-
-  componentWillUnmount() {
-    // Not mandatory
-    if (this.navigationEventListener) {
-      this.navigationEventListener.remove();
-    }
+  constructor(props) {
+    super(props);
+    Navigation.events().bindComponent(this);
   }
 
   navigationButtonPressed({ buttonId }) {
-    console.log(buttonId);
+    if (buttonId === "sideDrawerToggle") {
+      Navigation.mergeOptions(this.props.componentId, {
+        sideMenu: {
+          left: {
+            visible: true
+          }
+        }
+      })
+    }
   }
 
   placeAddedHandler = placeName => {
