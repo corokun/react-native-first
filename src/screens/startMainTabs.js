@@ -31,7 +31,8 @@ const startMainTabs = () => {
                             options: {
                               topBar: {
                                 title: {
-                                  text: 'Find Place'
+                                  text: 'Find Place',
+                                  alignment: 'center'
                                 },
                                 leftButtons: [
                                   {
@@ -61,7 +62,8 @@ const startMainTabs = () => {
                             options: {
                               topBar: {
                                 title: {
-                                  text: 'Share Place'
+                                  text: 'Share Place',
+                                  alignment: 'center'
                                 },
                                 leftButtons: [
                                   {

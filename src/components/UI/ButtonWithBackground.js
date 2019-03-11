@@ -1,18 +1,21 @@
 import React from 'react';
-import { TouchableHighlight, Text, View, StyleSheet } from 'react-native';
+import { TouchableOpacity, Text, View, StyleSheet } from 'react-native';
 
 const buttonWithBackground = props => (
-  <TouchableHighlight onPress={props.onPress}>
-    <View style={[styles.button, ]}>
+  <TouchableOpacity onPress={props.onPress}>
+    <View style={[styles.button, {backgroundColor: props.color}]}>
       <Text>{props.children}</Text>
     </View>
-  </TouchableHighlight>
+  </TouchableOpacity>
 );
 
 const styles = StyleSheet.create({
   button: {
     padding: 10,
-    margin: 5
+    margin: 5,
+    borderRadius: 5,
+    borderWidth: 1,
+    borderColor: "black"
   }
 });
 
