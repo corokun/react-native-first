@@ -1,13 +1,14 @@
 import { Navigation } from 'react-native-navigation';
+import { Platform } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 
 // Icons are necessary to render on Android
 
 const startMainTabs = () => {
   Promise.all([
-    Icon.getImageSource("md-map", 30),
-    Icon.getImageSource("ios-share-alt", 30),
-    Icon.getImageSource("ios-menu", 30)
+    Icon.getImageSource(Platform.OS === 'android' ? "md-map": 'ios-map', 30),
+    Icon.getImageSource(Platform.OS === 'android' ? "md-share-alt" : "ios-share", 30),
+    Icon.getImageSource(Platform.OS === 'android' ? "md-menu" : "ios-menu", 30)
   ]).then(sources => {
       Navigation.setRoot({
         root: {
@@ -44,7 +45,17 @@ const startMainTabs = () => {
                               },
                               bottomTab: {
                                 text: 'Find Place',
-                                icon: sources[0]
+                                icon: sources[0],
+                                ...Platform.select({
+                                  android: {
+                                    selectedIconColor: '#F6568E',
+                                    selectedTextColor: '#F6568E',
+                                  },
+                                  ios: {
+                                    selectedIconColor: '#2E80FA',
+                                    selectedTextColor: '#2E80FA',
+                                  }
+                                })
                               }
                             }
                           },
@@ -75,7 +86,17 @@ const startMainTabs = () => {
                               },
                               bottomTab: {
                                 text: 'Share Place',
-                                icon: sources[1]
+                                icon: sources[1],
+                                ...Platform.select({
+                                  android: {
+                                    selectedIconColor: '#F6568E',
+                                    selectedTextColor: '#F6568E',
+                                  },
+                                  ios: {
+                                    selectedIconColor: '#2E80FA',
+                                    selectedTextColor: '#2E80FA',
+                                  }
+                                })
                               }
                             }
                           },
