@@ -39,6 +39,7 @@ const startMainTabs = () => {
                                   {
                                     id: 'sideDrawerToggle',
                                     icon: sources[2],
+                                    color: 'orange',
                                     title: "Menu"
                                   }
                                 ]
@@ -52,8 +53,8 @@ const startMainTabs = () => {
                                     selectedTextColor: '#F6568E',
                                   },
                                   ios: {
-                                    selectedIconColor: '#2E80FA',
-                                    selectedTextColor: '#2E80FA',
+                                    selectedIconColor: 'orange',
+                                    selectedTextColor: 'orange',
                                   }
                                 })
                               }
@@ -80,6 +81,7 @@ const startMainTabs = () => {
                                   {
                                     id: 'sideDrawerToggle',
                                     icon: sources[2],
+                                    color: 'orange',
                                     title: "Menu"
                                   }
                                 ]
@@ -93,8 +95,8 @@ const startMainTabs = () => {
                                     selectedTextColor: '#F6568E',
                                   },
                                   ios: {
-                                    selectedIconColor: '#2E80FA',
-                                    selectedTextColor: '#2E80FA',
+                                    selectedIconColor: 'orange',
+                                    selectedTextColor: 'orange',
                                   }
                                 })
                               }
