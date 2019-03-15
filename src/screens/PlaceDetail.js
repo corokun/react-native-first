@@ -7,7 +7,7 @@ import {
   StyleSheet,
   TouchableOpacity,
   Platform,
-  Dimensions
+  Dimensions,
 } from 'react-native';
 import { connect } from 'react-redux';
 
@@ -16,7 +16,7 @@ import { deletePlace } from '../store/actions/index';
 
 class PlaceDetailScreen extends Component {
   state = {
-    viewMode: "portrait"
+    viewMode: 'portrait',
   };
 
   constructor(props) {
@@ -28,32 +28,32 @@ class PlaceDetailScreen extends Component {
     Dimensions.removeEventListener('change', this.updateStyles);
   }
 
-  updateStyles = (dims) => {
+  updateStyles = dims => {
     this.setState({
-      viewMode: dims.window.height > 500 ? 'portrait' : 'landscape'
+      viewMode: dims.window.height > 500 ? 'portrait' : 'landscape',
     });
-  }
+  };
 
   placeDeletedHandler = () => {
     this.props.onDeletePlace(this.props.selectedPlace.key);
     Navigation.pop(this.props.componentId);
-  }
+  };
 
   render() {
-    return(
+    return (
       <View
         style={[
           styles.container,
           this.state.viewMode === 'portrait'
-          ? styles.portraitContainer
-          : styles.landscapeContainer
+            ? styles.portraitContainer
+            : styles.landscapeContainer,
         ]}
       >
         <View styles={styles.subContainer}>
-            <Image
-              source={this.props.selectedPlace.image}
-              style={styles.placeImage}
-            />
+          <Image
+            source={this.props.selectedPlace.image}
+            style={styles.placeImage}
+          />
         </View>
         <View styles={styles.subContainer}>
           <View>
@@ -64,45 +64,50 @@ class PlaceDetailScreen extends Component {
           <View>
             <TouchableOpacity onPress={this.placeDeletedHandler}>
               <View style={styles.deleteButton}>
-                <Icon size={30} name={Platform.OS === 'android' ? "md-trash" : "ios-trash"} color="red" />
+                <Icon
+                  size={30}
+                  name={Platform.OS === 'android' ? 'md-trash' : 'ios-trash'}
+                  color="red"
+                />
               </View>
             </TouchableOpacity>
           </View>
         </View>
       </View>
     );
-  };
-};
+  }
+}
 
 const styles = StyleSheet.create({
   container: {
     margin: 22,
-    flex: 1
+    flex: 1,
   },
   portraitContainer: {
-    flexDirection: 'column'
+    flexDirection: 'column',
   },
   landscapeContainer: {
-    flexDirection: 'row'
+    flexDirection: 'row',
   },
   placeImage: {
-    width: "100%",
-    height: 200
+    width: '100%',
+    height: 200,
   },
   placeName: {
-    fontWeight: "bold",
-    textAlign: "center",
-    fontSize: 28
+    fontWeight: 'bold',
+    textAlign: 'center',
+    fontSize: 28,
   },
   deleteButton: {
-    alignItems: "center"
-  }
-})
+    alignItems: 'center',
+  },
+});
 
-const mapDispatchToProps = dispatch => {
-  return {
-    onDeletePlace: (key) => dispatch(deletePlace(key)),
-  }
-}
+const mapDispatchToProps = dispatch => ({
+  onDeletePlace: key => dispatch(deletePlace(key)),
+});
 
-export default connect(null, mapDispatchToProps)(PlaceDetailScreen);
+export default connect(
+  null,
+  mapDispatchToProps
+)(PlaceDetailScreen);

@@ -5,7 +5,7 @@ import {
   Text,
   View,
   StyleSheet,
-  Platform
+  Platform,
 } from 'react-native';
 
 const buttonWithBackground = props => {
@@ -21,11 +21,7 @@ const buttonWithBackground = props => {
       </TouchableNativeFeedback>
     );
   }
-  return (
-    <TouchableOpacity onPress={props.onPress}>
-      {content}
-    </TouchableOpacity>
-  );
+  return <TouchableOpacity onPress={props.onPress}>{content}</TouchableOpacity>;
 };
 
 const styles = StyleSheet.create({
@@ -34,8 +30,8 @@ const styles = StyleSheet.create({
     margin: 5,
     borderRadius: 5,
     borderWidth: 1,
-    borderColor: "black"
-  }
+    borderColor: 'black',
+  },
 });
 
 export default buttonWithBackground;

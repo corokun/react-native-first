@@ -1,0 +1,12 @@
+{
+  "extends": [
+    "wesbos"
+  ],
+  "rules": {
+    "no-use-before-define": "off",
+    "react/sort-comp": "off",
+    "react/destructuring-assignment": "off",
+    "react/prop-types": "off",
+    "no-useless-constructor": "off"
+  }
+}

@@ -13,28 +13,31 @@ class PickLocation extends Component {
           <Text>Map</Text>
         </View>
         <View style={styles.button}>
-          <Button title="Locate Me" onPress={() => alert('Pick Map Location')} />
+          <Button
+            title="Locate Me"
+            onPress={() => alert('Pick Map Location')}
+          />
         </View>
       </View>
-    )
+    );
   }
 }
 
 const styles = StyleSheet.create({
   container: {
-    width: "100%",
-    alignItems: "center"
+    width: '100%',
+    alignItems: 'center',
   },
   placeholder: {
     borderWidth: 1,
-    borderColor: "black",
-    backgroundColor: "#eee",
-    width: "80%",
-    height: 150
+    borderColor: 'black',
+    backgroundColor: '#eee',
+    width: '80%',
+    height: 150,
   },
   button: {
-    margin: 8
-  }
+    margin: 8,
+  },
 });
 
 export default PickLocation;

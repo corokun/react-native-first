@@ -18,29 +18,29 @@ class PickImage extends Component {
           <Button title="Pick Image" onPress={() => alert('Pick Image!')} />
         </View>
       </View>
-    )
+    );
   }
 }
 
 const styles = StyleSheet.create({
   container: {
-    width: "100%",
-    alignItems: "center"
+    width: '100%',
+    alignItems: 'center',
   },
   placeholder: {
     borderWidth: 1,
-    borderColor: "black",
-    backgroundColor: "#eee",
-    width: "80%",
-    height: 150
+    borderColor: 'black',
+    backgroundColor: '#eee',
+    width: '80%',
+    height: 150,
   },
   button: {
-    margin: 8
+    margin: 8,
   },
   previewImage: {
-    width: "100%",
-    height: "100%"
-  }
+    width: '100%',
+    height: '100%',
+  },
 });
 
 export default PickImage;

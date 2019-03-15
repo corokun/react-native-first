@@ -1,10 +1,5 @@
 import React, { Component } from 'react';
-import {
-  View,
-  Button,
-  StyleSheet,
-  ScrollView,
-} from 'react-native';
+import { View, Button, StyleSheet, ScrollView } from 'react-native';
 import { Navigation } from 'react-native-navigation';
 
 import { connect } from 'react-redux';
@@ -24,32 +19,32 @@ class SharePlaceScreen extends Component {
   }
 
   state = {
-    placeName: ""
-  }
+    placeName: '',
+  };
 
   navigationButtonPressed({ buttonId }) {
-    if (buttonId === "sideDrawerToggle") {
+    if (buttonId === 'sideDrawerToggle') {
       Navigation.mergeOptions(this.props.componentId, {
         sideMenu: {
           left: {
-            visible: true
-          }
-        }
-      })
+            visible: true,
+          },
+        },
+      });
     }
   }
 
   placeNameChangedHandler = val => {
     this.setState({
-      placeName: val
+      placeName: val,
     });
-  }
+  };
 
   placeAddedHandler = () => {
     if (this.state.placeName.trim() !== '') {
       this.props.onAddPlace(this.state.placeName);
     }
-  }
+  };
 
   render() {
     return (
@@ -65,10 +60,7 @@ class SharePlaceScreen extends Component {
             onChangeText={this.placeNameChangedHandler}
           />
           <View style={styles.button}>
-            <Button
-              title="Share the Place!"
-              onPress={this.placeAddedHandler}
-            />
+            <Button title="Share the Place!" onPress={this.placeAddedHandler} />
           </View>
         </View>
       </ScrollView>
@@ -79,28 +71,29 @@ class SharePlaceScreen extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: "center"
+    alignItems: 'center',
   },
   placeholder: {
     borderWidth: 1,
-    borderColor: "black",
-    backgroundColor: "#eee",
-    width: "80%",
-    height: 150
+    borderColor: 'black',
+    backgroundColor: '#eee',
+    width: '80%',
+    height: 150,
   },
   button: {
-    margin: 8
+    margin: 8,
   },
   previewImage: {
-    width: "100%",
-    height: "100%"
-  }
+    width: '100%',
+    height: '100%',
+  },
 });
 
-const mapDispatchToProps = dispatch => {
-  return {
-    onAddPlace: (placeName) => dispatch(addPlace(placeName))
-  };
-};
+const mapDispatchToProps = dispatch => ({
+  onAddPlace: placeName => dispatch(addPlace(placeName)),
+});
 
-export default connect(null, mapDispatchToProps)(SharePlaceScreen);
+export default connect(
+  null,
+  mapDispatchToProps
+)(SharePlaceScreen);
