@@ -1,6 +1,6 @@
 const validate = (val, rules, connectedValue) => {
   let isValid = true;
-  for (let rule in rules) {
+  for (const rule in rules) {
     switch (rule) {
       case 'isEmail':
         isValid = isValid && emailValidator(val);
@@ -11,25 +11,25 @@ const validate = (val, rules, connectedValue) => {
       case 'equalTo':
         isValid = isValid && equalToValidator(val, connectedValue[rule]);
         break;
+      case 'notEmpty':
+        isValid = isValid && notEmptyValidator(val);
+        break;
       default:
         isValid = true;
     }
   }
   return isValid;
-}
-
-const emailValidator = val => {
-  return /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/.test(
-    val
-  );
 };
 
-const minLengthValidator = (val, minLength) => {
-  return val.length >= minLength;
-}
+const emailValidator = val =>
+  /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/.test(
+    val
+  );
 
-const equalToValidator = (val, checkValue) => {
-  return val === checkValue;
-}
+const minLengthValidator = (val, minLength) => val.length >= minLength;
+
+const equalToValidator = (val, checkValue) => val === checkValue;
+
+const notEmptyValidator = val => val.trim() !== '';
 
 export default validate;
