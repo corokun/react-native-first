@@ -103,6 +103,7 @@ android {
         missingDimensionStrategy "RNN.reactNativeVersion", "reactNative57_5" // See note below!
         versionCode 1
         versionName "1.0"
+        manifestPlaceholders = [API-KEY:"AIzaSyAi2dyZoVRYTXeR8FJOeZ2MrNKg83Bq0aM"]
     }
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
