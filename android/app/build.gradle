@@ -147,6 +147,7 @@ configurations.all {
 }
 
 dependencies {
+    implementation project(':react-native-image-picker')
     implementation project(':react-native-maps')
     implementation fileTree(dir: "libs", include: ["*.jar"])
     implementation 'com.android.support:design:25.4.0'

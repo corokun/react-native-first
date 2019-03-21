@@ -57,17 +57,17 @@ class FindPlaceScreen extends Component {
   };
 
   itemSelectedHandler = key => {
-    const selectedPlace = this.props.places.find(place => place.key === key);
+    const selPlace = this.props.places.find(place => place.key === key);
     Navigation.push(this.props.componentId, {
       component: {
         name: 'PlaceDetailScreen',
         passProps: {
-          selectedPlace,
+          selectedPlace: selPlace,
         },
         options: {
           topBar: {
             title: {
-              text: selectedPlace.name,
+              text: selPlace.name,
             },
           },
         },
