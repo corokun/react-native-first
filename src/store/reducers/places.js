@@ -16,6 +16,7 @@ const reducer = (state = initialState, action) => {
             uri:
               'https://images.unsplash.com/photo-1520960664719-d4f1f811dde1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80',
           },
+          location: action.location,
         }),
       };
     case DELETE_PLACE:
