@@ -7,7 +7,6 @@
     "react/sort-comp": "off",
     "react/destructuring-assignment": "off",
     "react/prop-types": "off",
-    "no-useless-constructor": "off",
     "no-restricted-syntax": "off",
     "guard-for-in": "off"
   }

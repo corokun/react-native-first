@@ -15,10 +15,6 @@ class PickLocation extends Component {
     locationChosen: false,
   };
 
-  constructor(props) {
-    super(props);
-  }
-
   pickLocationHandler = event => {
     const coords = event.nativeEvent.coordinate;
 

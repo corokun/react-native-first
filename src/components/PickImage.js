@@ -3,10 +3,6 @@ import { View, Button, StyleSheet, Image } from 'react-native';
 import ImagePicker from 'react-native-image-picker';
 
 class PickImage extends Component {
-  constructor(props) {
-    super(props);
-  }
-
   state = {
     pickedImage: null,
   };
